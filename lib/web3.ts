@@ -64,36 +64,7 @@
       }
     }
 
-    // async switchToSepolia(): Promise<void> {
-    //   if (!window.ethereum) return;
-
-    //   try {
-    //     await window.ethereum.request({
-    //       method: 'wallet_switchEthereumChain',
-    //       params: [{ chainId: '0xaa36a7' }], // Sepolia testnet chain ID
-    //     });
-    //   } catch (error: any) {
-    //     // If network doesn't exist, add it
-    //     if (error.code === 4902) {
-    //       await window.ethereum.request({
-    //         method: 'wallet_addEthereumChain',
-    //         params: [
-    //           {
-    //             chainId: '0xaa36a7',
-    //             chainName: 'Sepolia Test Network',
-    //             nativeCurrency: {
-    //               name: 'ETH',
-    //               symbol: 'ETH',
-    //               decimals: 18,
-    //             },
-    //             rpcUrls: ['https://sepolia.infura.io/v3/'],
-    //             blockExplorerUrls: ['https://sepolia.etherscan.io/'],
-    //           },
-    //         ],
-    //       });
-    //     }
-    //   }
-    // }
+  
 
 
     async getBalance(address: string): Promise<string> {
@@ -136,10 +107,7 @@
   ): Promise<string> {
     try {
     
-      // await contractService.initialize();
-      
-      // Get charity count before creation
-      // const countBefore = await contractService.contractInstance?.getTotalCharities() || BigInt(0);
+    
       
       // Create the charity (this returns transaction hash)
       const txHash = await contractService.createCharity(
@@ -179,41 +147,6 @@
       }
     }
 
-    // async getAllCharitiesFromChain(): Promise<CharityStruct[]> {
-    //   try {
-    //     return await contractService.getAllCharities();
-    //   } catch (error) {
-    //     console.error('Error getting all charities from chain:', error);
-    //     throw error;
-    //   }
-    // }
-
-    // async getUserCharitiesFromChain(userAddress: string): Promise<number[]> {
-    //   try {
-    //     return await contractService.getUserCharities(userAddress);
-    //   } catch (error) {
-    //     console.error('Error getting user charities from chain:', error);
-    //     throw error;
-    //   }
-    // }
-
-    // async getUserDonationsFromChain(userAddress: string): Promise<number[]> {
-    //   try {
-    //     return await contractService.getUserDonations(userAddress);
-    //   } catch (error) {
-    //     console.error('Error getting user donations from chain:', error);
-    //     throw error;
-    //   }
-    // }
-
-    // async getDonationFromChain(donationId: number): Promise<DonationStruct> {
-    //   try {
-    //     return await contractService.getDonation(donationId);
-    //   } catch (error) {
-    //     console.error('Error getting donation from chain:', error);
-    //     throw error;
-    //   }
-    // }
 
     async verifyCharityOnChain(charityId: number, verified: boolean): Promise<string> {
       try {
@@ -264,19 +197,15 @@
 
     // Event listeners for smart contract events
     setupContractEventListeners(): void {
-      // Remove existing listeners first to prevent duplicates
+      
       contractService.removeAllListeners();
       
-      // contractService.onCharityCreated((charityId, creator, name) => {
-      //   console.log(`New charity created: ${name} (ID: ${charityId}) by ${creator}`);
-      // });
+  
       contractService.onCharityCreated((charityId, creator, charityWallet, name, targetAmount) => {
     console.log(`New charity created: ${name} (ID: ${charityId}) by ${creator} with target ${ethers.formatEther(targetAmount)} ETH`);
 });
 
-      // contractService.onDonationMade((donationId, charityId, donor, amount) => {
-      //   console.log(`New donation: ${ethers.formatEther(amount)} ETH to charity ${charityId} by ${donor}`);
-      // });
+      
       contractService.onDonationMade((donationId, charityId, donor, amount, message) => {
   console.log(`New donation: ${ethers.formatEther(amount)} ETH to charity ${charityId} by ${donor} - Message: "${message}" (ID: ${donationId})`);
 });
