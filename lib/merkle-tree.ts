@@ -27,10 +27,10 @@ export class MerkleTree {
     this.buildTree();
   }
 
-  // SHA-256 hash function (simplified for educational purposes)
+
   private hash(data: string): string {
-    // In production, use crypto.createHash('sha256')
-    // For educational purposes, we'll use a simple hash
+    
+    // For easy, we'll use a simple hash
     let hash = 0;
     for (let i = 0; i < data.length; i++) {
       const char = data.charCodeAt(i);
