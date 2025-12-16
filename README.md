@@ -103,8 +103,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/chariblock-ry.git
-cd chariblock-ry
+git clone https://github.com/kushal2060/Charity-Donation-BLOCKCHAIN-System
+
 ```
 
 ### 2. Frontend Setup (Next.js)
