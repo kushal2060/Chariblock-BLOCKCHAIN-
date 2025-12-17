@@ -21,6 +21,12 @@
 **ChariBlock** is a blockchain-based charity platform that brings **transparency**, **security**, and **trust** to charitable donations. Built on Ethereum, ChariBlock ensures every donation is tracked on-chain, providing donors with complete visibility and accountability.
 
 
+
+
+https://github.com/user-attachments/assets/2d368234-93d5-402b-9b3e-18068012d747
+
+
+
 ## Features
 
 ### For Donors 
